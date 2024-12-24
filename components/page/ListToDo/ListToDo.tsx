@@ -8,6 +8,7 @@ interface ToDoItem {
   description: string;
   priority: string;
   img: string;
+  id: number;
 }
 
 const ListToDo = () => {
@@ -45,6 +46,7 @@ const ListToDo = () => {
     const itemToUpdate = todoList[selectedItemIndex];
 
     const updatedItem = {
+      id: itemToUpdate.id,
       title,
       description,
       priority,
