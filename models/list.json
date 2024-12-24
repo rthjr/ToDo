@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "title": "Sample Task",
+        "description": "This is a sample task description.",
+        "priority": "High"
+    },
+    {
+        "id": 2,
+        "title": "New Task",
+        "description": "This is a new task description.",
+        "priority": "Medium"
+    },
+    {
+        "id": 3,
+        "title": "Another Task",
+        "description": "This is another task description.",
+        "priority": "Low"
+    }
+]
