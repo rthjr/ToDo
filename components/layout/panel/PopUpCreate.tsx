@@ -9,23 +9,8 @@ const PopUpCreate: React.FC<PopUpCreate> = ({ handleClosePopUp }) => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [priority, setPriority] = useState('');
-    const [imageFile, setImageFile] = useState<File | null>(null); // State for the selected image file
-    const [imagePreview, setImagePreview] = useState<string | null>(null); // Preview for the uploaded image
 
     const defaultImage = 'https://images.pexels.com/photos/3299/postit-scrabble-to-do.jpg?auto=compress&cs=tinysrgb&w=600';
-
-    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const file = e.target.files?.[0] || null;
-        setImageFile(file);
-
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = () => setImagePreview(reader.result as string);
-            reader.readAsDataURL(file); // Convert file to Base64 for preview
-        } else {
-            setImagePreview(null);
-        }
-    };
 
     const handlePostData = async () => {
         // Create the data object with title, description, priority, and imageFile
@@ -33,7 +18,7 @@ const PopUpCreate: React.FC<PopUpCreate> = ({ handleClosePopUp }) => {
             title,
             description,
             priority,
-            img: imagePreview || defaultImage, // Use the uploaded or default image
+            img: defaultImage, // Use the uploaded or default image
         };
 
         try {
@@ -67,25 +52,12 @@ const PopUpCreate: React.FC<PopUpCreate> = ({ handleClosePopUp }) => {
                 <div className='flex justify-center items-center'>
                     <img
                         alt="Preview"
-                        src={imagePreview || defaultImage} // Display the selected or default image
+                        src={defaultImage} // Display the selected or default image
                         className="h-full w-full"
                     />
                 </div>
 
                 <div className="text-start flex flex-col gap-4 p-4 col-span-2">
-                    {/* <label
-                        htmlFor="ImageUpload"
-                        className="block text-lg font-medium text-gray-700"
-                    >
-                        Upload Image
-                        <input
-                            type="file"
-                            id="ImageUpload"
-                            accept="image/*"
-                            onChange={handleFileChange}
-                            className="mt-2 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
-                        />
-                    </label> */}
 
                     <label
                         htmlFor="Title"
