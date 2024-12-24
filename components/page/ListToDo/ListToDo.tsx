@@ -45,12 +45,12 @@ const ListToDo = () => {
     if (selectedItemIndex === null) return;
     const itemToUpdate = todoList[selectedItemIndex];
 
-    const updatedItem = {
-      id: itemToUpdate.id,
+    const updatedItem: ToDoItem = {
       title,
       description,
       priority,
       img: imagePreview || defaultImage,
+      id: itemToUpdate.id, // Include the id property
     };
 
     try {
