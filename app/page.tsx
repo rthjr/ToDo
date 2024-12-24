@@ -25,7 +25,7 @@ const page = () => {
           </span>
 
           {/* ToDo have been created */}
-          <div className='flex gap-8 flex-wrap '>
+          <div className='flex gap-8 flex-wrap items-center justify-center'>
             <ListToDo />
           </div>
         </div>

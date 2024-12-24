@@ -1,5 +1,6 @@
 import Button from '@/components/commons/Button/Button';
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 interface PopUpCreate {
     handleClosePopUp: () => void;
@@ -10,6 +11,7 @@ const PopUpCreate: React.FC<PopUpCreate> = ({ handleClosePopUp }) => {
     const [description, setDescription] = useState('');
     const [priority, setPriority] = useState('');
 
+    const router = useRouter();
     const defaultImage = 'https://images.pexels.com/photos/3299/postit-scrabble-to-do.jpg?auto=compress&cs=tinysrgb&w=600';
 
     const handlePostData = async () => {
@@ -32,6 +34,8 @@ const PopUpCreate: React.FC<PopUpCreate> = ({ handleClosePopUp }) => {
 
             if (!response.ok) {
                 throw new Error('Failed to post data');
+            } else {
+                window.location.reload()
             }
 
             const result = await response.json();
